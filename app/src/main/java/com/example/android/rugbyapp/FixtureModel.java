@@ -7,20 +7,35 @@ public class FixtureModel {
     private String homeTeamScore;
     private String awayTeamScore;
 
-    public String getHomeTeamName(){
-        return this.homeTeamName;
+    public String getHomeTeamName() {
+        return homeTeamName;
     }
 
-    public String getAwayTeamName(){
-        return this.awayTeamName;
+    public void setHomeTeamName(String homeTeamName) {
+        this.homeTeamName = homeTeamName;
     }
 
-    public String getHomeTeamScore(){
-        return this.homeTeamScore;
+    public String getAwayTeamName() {
+        return awayTeamName;
     }
 
-    public String getAwayTeamScore(){
-        return this.awayTeamScore;
+    public void setAwayTeamName(String awayTeamName) {
+        this.awayTeamName = awayTeamName;
     }
 
+    public String getHomeTeamScore() {
+        return homeTeamScore;
+    }
+
+    public void setHomeTeamScore(String homeTeamScore) {
+        this.homeTeamScore = homeTeamScore;
+    }
+
+    public String getAwayTeamScore() {
+        return awayTeamScore;
+    }
+
+    public void setAwayTeamScore(String awayTeamScore) {
+        this.awayTeamScore = awayTeamScore;
+    }
 }

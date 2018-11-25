@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHolder> {
     private static final String TAG = "FixturesAdapter";
 
     private String[] mDataSet;
+    private List<FixtureModel> mfixtureData;
 
     /**
      * Provide a reference to the type of views that you are using (custom ViewHolder)
@@ -42,13 +45,13 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
         public TextView getAwayTeamScore() {return awayTeamScore;}
     }
 
-    public FixturesAdapter(String[] dataSet) {mDataSet = dataSet;}
+    public FixturesAdapter(List<FixtureModel> fixtures) {mfixtureData = fixtures;}
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view.
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.fixture_row_item, viewGroup, false);
+                .inflate(R.layout.list_item_fixture, viewGroup, false);
 
         return new ViewHolder(v);
     }
@@ -59,14 +62,14 @@ public class FixturesAdapter extends RecyclerView.Adapter<FixturesAdapter.ViewHo
 
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
-        viewHolder.getHomeTeamName().setText(mDataSet[position]);
-        viewHolder.getAwayTeamName().setText(mDataSet[position]);
-        viewHolder.getHomeTeamScore().setText(mDataSet[position]);
-        viewHolder.getAwayTeamScore().setText(mDataSet[position]);
+        viewHolder.getHomeTeamName().setText(mfixtureData.get(position).getHomeTeamName());
+        viewHolder.getAwayTeamName().setText(mfixtureData.get(position).getAwayTeamName());
+        viewHolder.getHomeTeamScore().setText(mfixtureData.get(position).getHomeTeamScore());
+        viewHolder.getAwayTeamScore().setText(mfixtureData.get(position).getAwayTeamScore());
     }
 
     @Override
     public int getItemCount() {
-        return mDataSet.length;
+        return mfixtureData.size();
     }
 }

@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FixturesRecyclerViewFragment extends Fragment {
@@ -35,7 +35,7 @@ public class FixturesRecyclerViewFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.recycler_view_fixtures, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_fixtures, container, false);
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
@@ -45,7 +45,7 @@ public class FixturesRecyclerViewFragment extends Fragment {
 
         setRecyclerViewLayoutManager();
 
-        mAdapter = new FixturesAdapter(mDataset);
+        mAdapter = new FixturesAdapter(mfixtureData);
 
         mRecyclerView.setAdapter(mAdapter);
 
@@ -67,10 +67,16 @@ public class FixturesRecyclerViewFragment extends Fragment {
 
     private void initDataset() {
         mDataset = new String[DATASET_COUNT];
-        FixtureModel fixtures = new FixtureModel();
+        mfixtureData = new ArrayList<>();
+
         for (int i = 0; i < DATASET_COUNT; i++) {
             mDataset[i] = "This is element #" + i;
-
+            FixtureModel fixtures = new FixtureModel();
+            fixtures.setHomeTeamName("Home Team "+i);
+            fixtures.setAwayTeamName("Away Team "+i);
+            fixtures.setHomeTeamScore(String.valueOf(i));
+            fixtures.setAwayTeamScore(String.valueOf(i));
+            mfixtureData.add(fixtures);
         }
     }
 }
