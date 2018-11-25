@@ -70,7 +70,7 @@ public class FixturesRecyclerViewFragment extends Fragment {
         FixtureModel fixtures = new FixtureModel();
         for (int i = 0; i < DATASET_COUNT; i++) {
             mDataset[i] = "This is element #" + i;
-             
+
         }
     }
 }
