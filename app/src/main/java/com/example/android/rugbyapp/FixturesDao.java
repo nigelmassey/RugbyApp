@@ -9,7 +9,7 @@ import androidx.room.Query;
 @Dao
 public interface FixturesDao {
 
-    @Query("SELECT * FROM FixturesEntity")
+    @Query("SELECT * FROM fixtures")
     List<FixturesEntity> getAll();
 
     @Insert
