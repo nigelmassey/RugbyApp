@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 
 public interface GetRugbyDataService {
 
-    @GET("/")
+    @GET("/fixtures")
     Call<List<FixtureModel>> getFixtures();
 
 }
